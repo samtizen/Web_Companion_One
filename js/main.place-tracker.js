@@ -4,7 +4,7 @@
  * File Created: Sunday, 1st July 2018 10:27:30 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Monday, 2nd July 2018 8:34:18 pm
+ * Last Modified: Monday, 2nd July 2018 9:19:47 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -323,6 +323,13 @@ var stroller = (function($, serviceT) {
     }
 
     // Consent Popup
+
+    // General Info Popup
+    function renderGeneralInfoPopupText(message) {
+		$("#general-info-popup-id").find(".ui-popup-content").text(message);
+		tau.openPopup("#general-info-popup-id");
+		
+	}
 
     return mainTracker;
 
