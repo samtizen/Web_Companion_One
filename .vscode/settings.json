@@ -1,0 +1,21 @@
+{
+    "psi-header.templates": [{
+        "language": "*",
+        "template": [
+            "File: <<filename>>",
+            "Project: <<projectname>>",
+            "File Created: <<filecreated('dddd, Do MMMM YYYY h:mm:ss a')>>",
+            "Author: Sergei Papulin",
+            "-----",
+            "Last Modified: <<dateformat('dddd, Do MMMM YYYY h:mm:ss a')>>",
+            "Modified By: Sergei Papulin",
+            "-----",
+            "Copyright <<year>> Sergei Papulin, Zighter"
+        ]
+    }
+],
+"psi-header.changes-tracking": {
+    "isActive": true
+},
+"git.ignoreLimitWarning": true
+}

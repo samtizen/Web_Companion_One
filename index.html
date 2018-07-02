@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,user-scalable=no">
+	<title>Circular UI</title>
+	<link rel="stylesheet" href="lib/tau/wearable/theme/default/tau.min.css">
+	<link rel="stylesheet" media="all and (-tizen-geometric-shape: circle)" href="lib/tau/wearable/theme/default/tau.circle.min.css">
+	<!-- load theme file for your application -->
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+<div class="ui-page ui-page-active" id="main">
+	<header class="ui-header">
+		<h2 class="ui-title">ZStroller</h2>
+	</header>
+	<div class="ui-content content-padding">
+		<div class="ui-label-name">Прогулка по Москве</div>
+	</div>
+	<footer class="ui-footer ui-bottom-button ui-fixed">
+		<a href="stroll-page.html" class="ui-btn ui-start-stroll-btn">START</a>
+	</footer>
+	<div id="load-popup-id" class="ui-popup">
+		<div class="ui-popup-header">User consent</div>
+		<div class="ui-popup-content">
+			Agree?
+			<br>Some device wants to load a new stroll to your watch.
+		</div>
+		<div class="ui-popup-footer ui-side-button ui-grid-col-2">
+			<a id="btn-load-popup-cancel" href="#" class="ui-btn btn-icon-cancel" data-rel="back">Cancel</a>
+			<a id="btn-load-popup-ok" href="#" class="ui-btn btn-icon-check" data-rel="back">OK</a>
+		</div>
+	</div>
+</div>
+<script src="lib/jquery.js"></script>
+<script src="lib/underscore.js"></script>
+<script src="lib/geolib.js"></script>
+<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
+<script src="js/main.tizen.js"></script>
+<script src="js/battery-checker.js"></script>
+<script src="js/service.sap.place-traker.js"></script>
+<script src="js/data.place-tracker.test.js"></script>
+<script src="js/model.place-tracker.js"></script>
+<script src="js/storage.place-tracker.js"></script>
+<script src="js/main.place-tracker.js"></script>
+<script>
+	stroller.init(sights);
+</script>
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/PlaceTrackerGearApp" version="1.0.0" viewmodes="maximized">
+    <tizen:application id="UONbDEsZUK.PlaceTrackerGearApp" package="UONbDEsZUK" required_version="2.3.1"/>
+    <content src="index.html"/>
+    <feature name="http://tizen.org/feature/screen.size.normal"/>
+    <icon src="icon.png"/>
+    <tizen:metadata key="AccessoryServicesLocation" value="/res/xml/accessoryservices.xml"/>
+    <name>PlaceTrackerGearApp</name>
+    <tizen:privilege name="http://developer.samsung.com/tizen/privilege/accessoryprotocol"/>
+    <tizen:privilege name="http://tizen.org/privilege/location"/>
+    <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
+    <tizen:privilege name="http://tizen.org/privilege/power"/>
+    <tizen:profile name="wearable"/>
+    <tizen:setting background-support="enable" hwkey-event="enable"/>
+</widget>
