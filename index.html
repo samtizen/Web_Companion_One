@@ -18,7 +18,7 @@
 		<div class="ui-marquee ui-label-name ui-label-name-main" style="display:none;">Прогулка по Москве</div>
 	</div>
 	<footer class="ui-footer ui-bottom-button ui-fixed">
-		<a href="stroll-page.html" class="ui-btn ui-start-stroll-btn">START</a>
+		<a href="#stroll" class="ui-btn ui-start-stroll-btn">START</a>
 	</footer>
 	<div id="load-popup-id" class="ui-popup">
 		<div class="ui-popup-header">User consent</div>
@@ -32,17 +32,66 @@
 		</div>
 	</div>
 </div>
-<div id="general-info-popup-id" class="ui-popup" data-role="popup">
-	<div class="ui-popup-content"></div>
-	<div class="ui-popup-footer ui-bottom-button">
-		<a id="info-popup-btn-id" href="#" class="ui-btn" data-rel="back">OK</a>
+<div class="ui-page" id="stroll" data-enable-page-scroll="false">
+	<div id="hsectionchanger" class="ui-content">
+		<div>
+			<section class="ui-section-active">
+				<div class="ui-header">
+					<div class="ui-title">Tracker</div>
+				</div>
+				<div class="ui-content ui-next-place-content">
+					<div class="ui-label">Next closest place</div>
+					<div class="ui-label-name ui-place-item ui-stroll-name">Loading...</div>
+					<div class="ui-label-distance ui-stroll-distance"></div>
+				</div>
+				<div class="ui-footer ui-bottom-button ui-fixed ui-set-width-50">
+					<a href="index.html" class="ui-btn ui-close-stroll-btn">CLOSE</a>
+				</div>
+				<div class="ui-side-btn ui-right-side-btn">
+					&#10093;
+				</div>
+			</section>
+			<section style="text-align:center;">
+				<div class="ui-header ui-header-custom-list">
+					<div class="ui-title">Places By Distance</div>
+				</div>
+				<div class="ui-content">
+					<ul class="ui-listview ui-ordered-place-list">
+						<div style="position:absolute;top:40px;width:100%;">Loading...</div>
+					</ul>
+				</div>
+				<div class="ui-side-btn ui-left-side-btn" style="vertical-align: middle;">
+					&#10092;
+				</div>
+			</section>
+		</div>
+	</div>
+	<div id="place-info-popup-id" class="ui-popup" data-role="popup">
+		<div class="ui-popup-content">
+			<div class="ui-label-name ui-info-popup-name">Android Dreams</div>
+			<div class="ui-info-popup-description"></div>
+		</div>
+		<div class="ui-footer ui-grid-col-2 ui-fixed">
+			<a href="#" class="ui-btn" id="btn-info-popup-seen">
+				<span class="view-icon popup-info-seen-status-icon"></span>
+				<span class="ui-seen-status-label">Seen</span>
+			</a>
+			<a href="#" class="ui-btn" id="btn-info-popup-back" data-rel="back">BACK</a>
+		</div>
+	</div>  
+	<div id="general-info-popup-id" class="ui-popup" data-role="popup">
+		<div class="ui-popup-content"></div>
+		<div class="ui-popup-footer ui-bottom-button">
+			<a id="info-popup-btn-id" href="#" class="ui-btn" data-rel="back">OK</a>
+		</div>
 	</div>
 </div>
 <script src="lib/jquery.js"></script>
 <script src="lib/underscore.js"></script>
 <script src="lib/geolib.js"></script>
-<script type="text/javascript" src="lib/tau/wearable/js/tau.min.js"></script>
+<script src="lib/tau/wearable/js/tau.min.js"></script>
 <script src="js/main.tizen.js"></script>
+<script src="js/main.section-changer.js"></script>
 <script src="js/battery-checker.js"></script>
 <script src="js/service.sap.place-traker.js"></script>
 <script src="js/data.place-tracker.test.js"></script>
