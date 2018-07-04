@@ -4,7 +4,7 @@
  * File Created: Sunday, 1st July 2018 10:27:30 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Wednesday, 4th July 2018 5:58:39 pm
+ * Last Modified: Wednesday, 4th July 2018 6:34:46 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -87,6 +87,7 @@ var stroller = (function($, serviceT) {
 
         $("#main").on("pagebeforeshow", function() {
             if (marqueeWidget == null) {
+                $title.show();
                 marqueeWidget = new tau.widget.Marquee($title[0], {iteration: "infinite", speed: 60, delay: 1000, marqueeStyle: "endToEnd"});
             }
             marqueeWidget.start();
