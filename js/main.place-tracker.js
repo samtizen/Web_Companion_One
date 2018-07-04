@@ -4,7 +4,7 @@
  * File Created: Sunday, 1st July 2018 10:27:30 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Monday, 2nd July 2018 9:19:47 pm
+ * Last Modified: Wednesday, 4th July 2018 5:58:39 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -58,7 +58,7 @@ var stroller = (function($, serviceT) {
         // =====================================
         // UI INIT
         // =====================================
-
+        //initMainPage();
 
         // =====================================
         // EVENTS
@@ -82,6 +82,18 @@ var stroller = (function($, serviceT) {
         // PAGES
         // -------------------------------------
         // Main Page
+        var $title = $("#main").find(".ui-label-name-main"),
+            marqueeWidget = null;
+
+        $("#main").on("pagebeforeshow", function() {
+            if (marqueeWidget == null) {
+                marqueeWidget = new tau.widget.Marquee($title[0], {iteration: "infinite", speed: 60, delay: 1000, marqueeStyle: "endToEnd"});
+            }
+            marqueeWidget.start();
+        });
+        $("#main").on("pagehide", function() {
+            marqueeWidget.stop();
+        });
         $(".ui-start-stroll-btn").click(function() {
             startGeoLocationWatcher();
             /*setTimeout(function() {
@@ -89,6 +101,7 @@ var stroller = (function($, serviceT) {
                 console.log("Location is changed.");
             }, 30000);*/
         });
+        
 
         // Stroll Page
         $("body").on("click", "#stroll .ui-place-item", function() {

@@ -4,7 +4,7 @@
  * File Created: Friday, 29th June 2018 12:53:18 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Sunday, 1st July 2018 10:43:27 pm
+ * Last Modified: Wednesday, 4th July 2018 6:14:25 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -147,8 +147,11 @@ body {
     white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	width: 90%;
 }
+.ui-label-name-main {
+	top: 30px;
+}
+
 .ui-label-distance {
     font-size: 2.6rem;
     color: white;

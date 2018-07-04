@@ -15,7 +15,7 @@
 		<h2 class="ui-title">ZStroller</h2>
 	</header>
 	<div class="ui-content content-padding">
-		<div class="ui-label-name">Прогулка по Москве</div>
+		<div class="ui-marquee ui-label-name ui-label-name-main">Прогулка по Москве</div>
 	</div>
 	<footer class="ui-footer ui-bottom-button ui-fixed">
 		<a href="stroll-page.html" class="ui-btn ui-start-stroll-btn">START</a>
@@ -50,7 +50,9 @@
 <script src="js/storage.place-tracker.js"></script>
 <script src="js/main.place-tracker.js"></script>
 <script>
-	stroller.init(sights);
+	$(document).ready(function() {
+		stroller.init(sights);
+	});
 </script>
 </body>
 </html>
