@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <application name="MyApplication" >
+    <application name="ZStrollerProvider" >
         <serviceProfile
-            id="/org/example/myapp/my_message"
-            name="MyMessage"
+            id="/zighter/zstroller"
+            name="zstrolleraccessory"
             autoLaunchAppId="UONbDEsZUK.PlaceTrackerGearApp"
             role="provider"
             version="1.0"

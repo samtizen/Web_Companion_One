@@ -28,7 +28,7 @@ var serviceT = (function() {
 	        console.log(peerAgent.appName);
 	        
 	        // Check connecting peer by appName
-	        if (peerAgent.appName === "MapBox2App") {
+	        if (peerAgent.appName === "ZStrollerConsumer") {
 	        	
 	        	// STEP 4a. Accept a connection request
 	            SAAgent.acceptServiceConnectionRequest(peerAgent);
