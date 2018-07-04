@@ -4,7 +4,7 @@
  * File Created: Sunday, 1st July 2018 10:27:30 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Wednesday, 4th July 2018 6:34:46 pm
+ * Last Modified: Wednesday, 4th July 2018 8:11:45 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -26,8 +26,10 @@ var stroller = (function($, serviceT) {
         // Stroll from the storage
         var initialData = storageTracker.getAllPlaces();
 
-        if (initialData && initialData.length > 0) strollPlaces = new PlaceList(initialData);
-        else strollPlaces = new PlaceList(data || []);
+        //if (initialData && initialData.length > 0) strollPlaces = new PlaceList(initialData);
+        //else strollPlaces = new PlaceList(data || []);
+
+        if(strollPlaces) $(".ui-start-stroll-btn").removeClass("ui-btn-disabled");
 
         console.log(strollPlaces);
 

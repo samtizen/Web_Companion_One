@@ -4,7 +4,7 @@
  * File Created: Friday, 29th June 2018 12:53:18 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Wednesday, 4th July 2018 6:14:25 pm
+ * Last Modified: Wednesday, 4th July 2018 8:07:50 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -233,4 +233,10 @@ body {
  .btn-icon-check::before {
 	background-color: rgba(245, 245, 245, 1);
 	-webkit-mask-image: url(../img/tw_ic_popup_btn_check.png);
+ }
+
+ .ui-btn-disabled {
+	 opacity: 0.6;
+	 user-select: none;
+	 pointer-events: none;
  }
