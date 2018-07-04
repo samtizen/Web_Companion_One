@@ -4,7 +4,7 @@
  * File Created: Sunday, 1st July 2018 10:27:30 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Wednesday, 4th July 2018 8:11:45 pm
+ * Last Modified: Wednesday, 4th July 2018 9:54:56 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -20,16 +20,27 @@ var stroller = (function($, serviceT) {
 
     mainTracker.init = function(data) {
 
+        console.log("init");
+        console.log(data);
         // =====================================
         // DATA INIT
         // =====================================
         // Stroll from the storage
-        var initialData = storageTracker.getAllPlaces();
+        var initialData = storageTracker.getAllPlaces(),
+            strollName = storageTracker.getName();
 
-        //if (initialData && initialData.length > 0) strollPlaces = new PlaceList(initialData);
-        //else strollPlaces = new PlaceList(data || []);
-
-        if(strollPlaces) $(".ui-start-stroll-btn").removeClass("ui-btn-disabled");
+        if (strollName && initialData && initialData.length > 0) {
+            strollPlaces = new PlaceList(initialData);
+        } else {
+            if (data && "name" in data) {
+                strollName = data.name;
+                storageTracker.setName(strollName);
+            };
+            if (data && "sights" in data) {
+                strollPlaces = new PlaceList(data.sights || []);
+                storageTracker.save(strollPlaces.places);
+            }
+        }
 
         console.log(strollPlaces);
 
@@ -60,7 +71,16 @@ var stroller = (function($, serviceT) {
         // =====================================
         // UI INIT
         // =====================================
-        //initMainPage();
+        var $title = $("#main").find(".ui-label-name-main"),
+            marqueeWidget = null;
+
+        if(strollName && strollPlaces.length() > 0) {
+            $title.text(strollName);
+            $(".ui-start-stroll-btn").removeClass("ui-btn-disabled");
+        } else {
+            $title.text("No stroll");
+            $(".ui-start-stroll-btn").addClass("ui-btn-disabled");
+        }
 
         // =====================================
         // EVENTS
@@ -84,9 +104,6 @@ var stroller = (function($, serviceT) {
         // PAGES
         // -------------------------------------
         // Main Page
-        var $title = $("#main").find(".ui-label-name-main"),
-            marqueeWidget = null;
-
         $("#main").on("pagebeforeshow", function() {
             if (marqueeWidget == null) {
                 $title.show();
@@ -156,6 +173,7 @@ var stroller = (function($, serviceT) {
 
         // Consent Popup
         $("#btn-load-popup-ok").click(function() {
+            // save to storage
             strollPlaces = new PlaceList(newStroll.sights || []);
         });
         $("#btn-load-popup-cancel").click(function() {

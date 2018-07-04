@@ -4,7 +4,7 @@
  * File Created: Sunday, 1st July 2018 10:34:01 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Sunday, 1st July 2018 10:34:23 pm
+ * Last Modified: Wednesday, 4th July 2018 8:59:39 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -18,14 +18,20 @@ var storageTracker = (function() {
         localStorage.removeItem("places");
     }
 
-    storageTracker.init = function(places) {
+    storageTracker.init = function(name, places) {
         localStorage.setItem("places", JSON.stringify(places));
+        localStorage.setItem("name", name);
     }
 
     storageTracker.save = function(places) {
         localStorage.setItem("places", JSON.stringify(places));
     }
-
+    storageTracker.setName = function(name) {
+        localStorage.setItem("name", name);
+    }
+    storageTracker.getName = function() {
+        localStorage.getItem("name");
+    }
     storageTracker.addPlace = function(place) {
         var places = localStorage.getItem("places");
         places = (places) ? JSON.parse(places) : [];

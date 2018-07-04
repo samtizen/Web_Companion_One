@@ -4,7 +4,7 @@
  * File Created: Wednesday, 20th June 2018 4:17:54 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Sunday, 1st July 2018 10:44:43 pm
+ * Last Modified: Wednesday, 4th July 2018 9:38:23 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -101,6 +101,10 @@ var PlaceList = (function() {
     PlaceList.prototype.getActivePlaces = function(currentPosition, useSeenOption) {
         return _.filter(this.sortedPlaces || [], function(place){ return (place.distance <= 30 && place.seenStatus === false); })
         //return _.filter(this.sortedPlaces || [], function(place){ return (place.seenStatus === false); })
+    };
+
+    PlaceList.prototype.length = function() {
+        return this.places.length;
     };
 
     return PlaceList;
