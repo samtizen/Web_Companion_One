@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns:tizen="http://tizen.org/ns/widgets" xmlns="http://www.w3.org/ns/widgets" id="http://yourdomain/PlaceTrackerGearApp" version="1.0.0" viewmodes="maximized">
     <tizen:application id="UONbDEsZUK.PlaceTrackerGearApp" package="UONbDEsZUK" required_version="2.3.1"/>
+    <author>Sergei Papulin</author>
     <content src="index.html"/>
     <feature name="http://tizen.org/feature/screen.size.normal"/>
-    <icon src="icon.png"/>
+    <icon src="zighter_logo_32x32_S.png" height="117" width="117"/>
     <tizen:metadata key="AccessoryServicesLocation" value="/res/xml/accessoryservices.xml"/>
-    <name>PlaceTrackerGearApp</name>
+    <name>ZStroller</name>
     <tizen:privilege name="http://developer.samsung.com/tizen/privilege/accessoryprotocol"/>
     <tizen:privilege name="http://tizen.org/privilege/location"/>
     <tizen:privilege name="http://tizen.org/privilege/application.launch"/>
