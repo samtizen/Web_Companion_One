@@ -4,7 +4,7 @@
  * File Created: Sunday, 1st July 2018 10:27:30 pm
  * Author: Sergei Papulin
  * -----
- * Last Modified: Wednesday, 4th July 2018 9:54:56 pm
+ * Last Modified: Wednesday, 4th July 2018 11:12:00 pm
  * Modified By: Sergei Papulin
  * -----
  * Copyright 2018 Sergei Papulin, Zighter
@@ -20,8 +20,6 @@ var stroller = (function($, serviceT) {
 
     mainTracker.init = function(data) {
 
-        console.log("init");
-        console.log(data);
         // =====================================
         // DATA INIT
         // =====================================
@@ -105,6 +103,9 @@ var stroller = (function($, serviceT) {
         // -------------------------------------
         // Main Page
         $("#main").on("pagebeforeshow", function() {
+
+            console.log("main -> pagebeforeshow");
+
             if (marqueeWidget == null) {
                 $title.show();
                 marqueeWidget = new tau.widget.Marquee($title[0], {iteration: "infinite", speed: 60, delay: 1000, marqueeStyle: "endToEnd"});
@@ -112,6 +113,7 @@ var stroller = (function($, serviceT) {
             marqueeWidget.start();
         });
         $("#main").on("pagehide", function() {
+            console.log("main -> pagehide");
             marqueeWidget.stop();
         });
         $(".ui-start-stroll-btn").click(function() {
@@ -121,7 +123,9 @@ var stroller = (function($, serviceT) {
                 console.log("Location is changed.");
             }, 30000);*/
         });
-        
+        $(".ui-label-name-main").click(function() {
+            marqueeWidget.start();
+        });
 
         // Stroll Page
         $("body").on("click", "#stroll .ui-place-item", function() {
@@ -173,10 +177,23 @@ var stroller = (function($, serviceT) {
 
         // Consent Popup
         $("#btn-load-popup-ok").click(function() {
+
+            navigator.vibrate(0);
+            
             // save to storage
-            strollPlaces = new PlaceList(newStroll.sights || []);
+            if(newStroll && newStroll.name && newStroll.sights.length > 0) {
+                strollPlaces = new PlaceList(newStroll.sights || []);
+                storageTracker.setName(newStroll.name);
+                storageTracker.save(strollPlaces.places);
+                renderHasStrollContent(newStroll.name);
+            } else {
+                renderGeneralInfoPopupText("The received stroll is invalid.");
+            } 
+
+
         });
         $("#btn-load-popup-cancel").click(function() {
+            navigator.vibrate(0);
             newStroll = null;
         });
     };
@@ -276,13 +293,13 @@ var stroller = (function($, serviceT) {
 						break;
 				}
 
-				//renderInfoPopupText(message);
+				renderGeneralInfoPopupText(message);
 				//setStopStateTracker();
 	        }
 	        
 	    } else {
             console.log("Geolocation is not supported.");
-			//renderInfoPopupText("Geolocation is not supported.");
+			renderGeneralInfoPopupText("Geolocation is not supported.");
 			//setStopStateTracker();
 	    }
 		
@@ -302,7 +319,14 @@ var stroller = (function($, serviceT) {
     // PAGES
     // -------------------------------------
     // Main Page
-
+    function renderNoStrollContent() {
+        $("#main").find(".ui-label-name-main").text("No stroll");
+        $(".ui-start-stroll-btn").addClass("ui-btn-disabled");
+    }
+    function renderHasStrollContent(strollName) {
+        $("#main").find(".ui-label-name-main").text(strollName);
+        $(".ui-start-stroll-btn").removeClass("ui-btn-disabled");
+    }
     // Stroll Page
     function renderNextPlaceContent(place) {
         $(".ui-stroll-name").text(place.name);
