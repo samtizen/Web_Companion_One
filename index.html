@@ -8,7 +8,6 @@
 	<!-- load theme file for your application -->
 	<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 <div class="ui-page ui-page-active" id="main">
 	<header class="ui-header">
@@ -20,17 +19,6 @@
 	<footer class="ui-footer ui-bottom-button ui-fixed">
 		<a href="#stroll" class="ui-btn ui-start-stroll-btn ui-btn-disabled">START</a>
 	</footer>
-	<div id="load-popup-id" class="ui-popup">
-		<div class="ui-popup-header">User consent</div>
-		<div class="ui-popup-content">
-			Agree?
-			<br>Some device wants to load a new stroll to your watch.
-		</div>
-		<div class="ui-popup-footer ui-side-button ui-grid-col-2">
-			<a id="btn-load-popup-cancel" href="#" class="ui-btn btn-icon-cancel" data-rel="back">Cancel</a>
-			<a id="btn-load-popup-ok" href="#" class="ui-btn btn-icon-check" data-rel="back">OK</a>
-		</div>
-	</div>
 </div>
 <div class="ui-page" id="stroll" data-enable-page-scroll="false">
 	<div id="hsectionchanger" class="ui-content">
@@ -79,6 +67,17 @@
 			<a href="#" class="ui-btn" id="btn-info-popup-back" data-rel="back">BACK</a>
 		</div>
 	</div>  
+</div>
+<div id="load-popup-id" class="ui-popup">
+	<div class="ui-popup-header">User consent</div>
+	<div class="ui-popup-content">
+		Agree?
+		<br>Some device wants to load a new stroll to your watch.
+	</div>
+	<div class="ui-popup-footer ui-side-button ui-grid-col-2">
+		<a id="btn-load-popup-cancel" href="#" class="ui-btn btn-icon-cancel" data-rel="back">Cancel</a>
+		<a id="btn-load-popup-ok" href="#" class="ui-btn btn-icon-check" data-rel="back">OK</a>
+	</div>
 </div>
 <div id="general-info-popup-id" class="ui-popup" data-role="popup">
 	<div class="ui-popup-content"></div>
